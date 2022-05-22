@@ -34,6 +34,7 @@ public class spadekTests {
         defendantPage defendant = new defendantPage(driver);
         defendant.odzyskajPosag();
         summaryPage summary = new summaryPage(driver);
+        Thread.sleep(1000);
         Assertions.assertAll(
                 () -> Assertions.assertTrue(summary.statement()),
                 () -> Assertions.assertTrue(summary.buttonEnabled()));
@@ -48,6 +49,7 @@ public class spadekTests {
         defendantPage defendant = new defendantPage(driver);
         defendant.ukryjSkarbiec();
         summaryPage summary = new summaryPage(driver);
+        Thread.sleep(1000);
         Assertions.assertAll(
                 () -> Assertions.assertTrue(summary.statement()),
                 () -> Assertions.assertTrue(summary.buttonEnabled()));
@@ -62,6 +64,7 @@ public class spadekTests {
         defendantPage defendant = new defendantPage(driver);
         defendant.wylaczNetflixa();
         summaryPage summary = new summaryPage(driver);
+        Thread.sleep(1000);
         Assertions.assertAll(
                 () -> Assertions.assertTrue(summary.statement()),
                 () -> Assertions.assertTrue(summary.buttonEnabled()));
