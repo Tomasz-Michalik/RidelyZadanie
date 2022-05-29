@@ -33,29 +33,26 @@ public class defendantPage {
 
 
 
-    public void odzyskajPosag() throws InterruptedException {
+    public void odzyskajPosag() {
         nameInput.sendKeys("Karol Nowak");
         titleInput.sendKeys("nic złego");
         Select dropdown = new Select(driver.findElement(By.cssSelector("#mat-input-5")));
         dropdown.selectByIndex(0);
-        Thread.sleep(1000);
         submitButton.click();
     }
-    public void ukryjSkarbiec() throws InterruptedException {
+    public void ukryjSkarbiec() {
         nameInput.sendKeys("Karol Nowak");
         titleInput.sendKeys("nic złego");
         dropDown.click();
         Select dropdown = new Select(driver.findElement(By.cssSelector("#mat-input-5")));
         dropdown.selectByIndex(1);
-        Thread.sleep(1000);
         submitButton.click();
     }
-    public void wylaczNetflixa() throws InterruptedException {
+    public void wylaczNetflixa() {
         nameInput.sendKeys("Karol Nowak");
         titleInput.sendKeys("nic złego");
         Select dropdown = new Select(driver.findElement(By.cssSelector("#mat-input-5")));
         dropdown.selectByIndex(2);
-        Thread.sleep(1000);
         submitButton.click();
     }
 }

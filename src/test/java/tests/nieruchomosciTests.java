@@ -11,6 +11,8 @@ import pageObject.defendantPage;
 import pageObject.homePage;
 import pageObject.summaryPage;
 
+import java.util.concurrent.TimeUnit;
+
 public class nieruchomosciTests {
     public static WebDriver driver;
 
@@ -22,49 +24,44 @@ public class nieruchomosciTests {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://test-ask.ridely.com/doc-wizard");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
-    void nieruchomosciTc01() throws InterruptedException {
+    void nieruchomosciTc01() {
         homePage homePage = new homePage(driver);
         homePage.clickNieruchomosci();
         applicantPage applicant = new applicantPage(driver);
         applicant.applicantSubmit();
-        Thread.sleep(1000);
         defendantPage defendant = new defendantPage(driver);
         defendant.odzyskajPosag();
         summaryPage summary = new summaryPage(driver);
-        Thread.sleep(1000);
         Assertions.assertAll(
                 () -> Assertions.assertTrue(summary.statement()),
                 () -> Assertions.assertTrue(summary.buttonEnabled()));
     }
     @Test
-    void nieruchomosciTc02() throws InterruptedException {
+    void nieruchomosciTc02(){
         homePage homePage = new homePage(driver);
         homePage.clickNieruchomosci();
         applicantPage applicant = new applicantPage(driver);
         applicant.applicantSubmit();
-        Thread.sleep(1000);
         defendantPage defendant = new defendantPage(driver);
         defendant.ukryjSkarbiec();
         summaryPage summary = new summaryPage(driver);
-        Thread.sleep(1000);
         Assertions.assertAll(
                 () -> Assertions.assertTrue(summary.statement()),
                 () -> Assertions.assertTrue(summary.buttonEnabled()));
     }
     @Test
-    void nieruchomosciTc03() throws InterruptedException {
+    void nieruchomosciTc03(){
         homePage homePage = new homePage(driver);
         homePage.clickNieruchomosci();
         applicantPage applicant = new applicantPage(driver);
         applicant.applicantSubmit();
-        Thread.sleep(1000);
         defendantPage defendant = new defendantPage(driver);
         defendant.wylaczNetflixa();
         summaryPage summary = new summaryPage(driver);
-        Thread.sleep(1000);
         Assertions.assertAll(
                 () -> Assertions.assertTrue(summary.statement()),
                 () -> Assertions.assertTrue(summary.buttonEnabled()));
